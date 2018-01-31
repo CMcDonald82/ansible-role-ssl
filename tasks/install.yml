@@ -1,0 +1,26 @@
+---
+
+- name: Add PPA for Certbot
+  become: yes
+  apt_repository:
+    repo: "ppa:certbot/certbot"
+    state: present
+    update_cache: yes
+  register: certbot_ppa_added
+
+- name: Update apt cache
+  become: yes
+  apt:
+    update_cache: yes
+    cache_valid_time: 86400
+  changed_when: false
+
+- name: Ensure Certbot is installed
+  become: yes
+  apt:
+    name: certbot
+    state: installed
+
+- name: Set Certbot script variable
+  set_fact:
+    certbot_script: "{{ certbot_package }}"
