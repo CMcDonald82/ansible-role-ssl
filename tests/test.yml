@@ -4,7 +4,7 @@
   remote_user: root
   become: yes
   vars:
-    certbot_domain_name: 165.227.220.80
+    certbot_domain_name: cmacweb.com
 
   pre_tasks:
     - name: Update apt cache.
