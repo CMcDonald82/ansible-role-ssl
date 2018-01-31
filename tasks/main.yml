@@ -1,3 +1,7 @@
 ---
 
+- include_tasks: install.yml
 
+- include_tasks: certs.yml
+
+- include_tasks: renew_cron.yml
