@@ -1,6 +1,6 @@
 ---
 
-- name: Add cron job for certbot renewal (if configured)
+- name: SSL | Add cron job for certbot renewal (if configured)
   cron:
     name: Certbot auto-renewal
     job: letsencrypt renew --quiet --no-self-upgrade #"{{ certbot script }} renew --quiet --no-self-upgrade"
