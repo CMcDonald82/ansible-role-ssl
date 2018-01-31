@@ -1,7 +1,8 @@
 # ansible-role-ssl
 
-Ansible role for installing and configuring SSL (using Certbot) on an Ubuntu server
+[![Build Status](https://travis-ci.org/CMcDonald82/ansible-role-ssl.svg?branch=master)](https://travis-ci.org/CMcDonald82/ansible-role-ssl)
 
+Ansible role for installing and configuring SSL (using Certbot) on an Ubuntu server
 
 ## Requirements
 
