@@ -2,7 +2,8 @@
 
 certbot_package: letsencrypt
 certbot_script: "{{ certbot_package }}"
-certbot_email: chris.mcdonald82@gmail.com
+certbot_email: me@example.com
+certbot_root_filename: html
 certbot_domains: 
   - "{{ domain_name }}"
   - "www.{{ domain_name }}"
