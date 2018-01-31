@@ -1,12 +1,13 @@
 ---
 
 certbot_package: letsencrypt
-certbot_script: "{{ certbot_package }}"
+# certbot_script: "{{ certbot_package }}"
 certbot_email: me@example.com
-certbot_root_filename: html
+certbot_root_path: /var/www/html
+certbot_domain_name: example.com
 certbot_domains: 
-  - "{{ domain_name }}"
-  - "www.{{ domain_name }}"
+  - "{{ certbot_domain_name }}"
+  - "www.{{ certbot_domain_name }}"
 certbot_auto_renew_user: "{{ ansible_user }}"
 certbot_auto_renew_hour: 3
 certbot_auto_renew_minute: 30
