@@ -1,0 +1,11 @@
+---
+
+certbot_package: letsencrypt
+certbot_script: "{{ certbot_package }}"
+certbot_email: chris.mcdonald82@gmail.com
+certbot_domains: 
+  - "{{ domain_name }}"
+  - "www.{{ domain_name }}"
+certbot_auto_renew_user: "{{ ansible_user }}"
+certbot_auto_renew_hour: 3
+certbot_auto_renew_minute: 30
