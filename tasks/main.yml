@@ -3,5 +3,6 @@
 - include_tasks: install.yml
 
 - include_tasks: certs.yml
+  when: certbot_create_cert
 
 - include_tasks: renew_cron.yml

@@ -31,6 +31,12 @@ certbot_root_path: /var/www/html
 The root path of the static page to be served. This should match the root directive in the nginx serverblock file that the cert is being created for. NOTE: See if we really need this to be editable by user - if not, we can hardcode it to /var/www/html
 
 ```
+certbot_create_cert: false
+```
+
+This determines whether a cert will be created automatically (via the 'standalone' method provided by the certbot package).
+
+```
 certbot_email: me@example.com
 ```
 
