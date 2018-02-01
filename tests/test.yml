@@ -3,8 +3,8 @@
 - hosts: localhost 
   remote_user: root
   become: yes
-  vars:
-    certbot_domain_name: cmacweb.com
+  # vars:
+  #   certbot_domain_name: cmacweb.gq
 
   pre_tasks:
     - name: Update apt cache.
