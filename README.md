@@ -6,7 +6,9 @@ Ansible role for installing and configuring SSL (using Certbot) on an Ubuntu ser
 
 ## Requirements
 
-None specifically, but this role should be run prior to the role that sets up Nginx (recommended to use this [Nginx role](https://github.com/CMcDonald82/ansible-role-nginx) to setup Nginx)
+This role requires that a domain name be setup (either purchased or setup for free through a service like [Freenom](http://www.freenom.com/en/index.html?lang=en)). This domain name will need to map to an actual IP address.
+
+Also, this role should be run prior to the role that sets up Nginx (recommended to use this [Nginx role](https://github.com/CMcDonald82/ansible-role-nginx) to setup Nginx)
 
 The first time we generate the certs, our webserver (Nginx) will not yet be running (since we are running this role prior to the nginx role). Therefore, we will need to use the 'standalone' mode the first time we generate certs and we can use 'webroot' after that
 See the 'Standalone' and 'Webroot' sections of [this link](https://certbot.eff.org/docs/using.html#getting-certificates-and-choosing-plugins)
@@ -20,7 +22,7 @@ certbot_package: letsencrypt
 certbot_script: "{{ certbot_package }}"
 ```
 
-This specifies the package and script name to use. Since Certbot uses LetsEncrypt certs, the default values here shouldn't need to be changed unless using another CA that supports the ACME protocol.
+This specifies the package and script name to use. Since Ubuntu uses letsencrypt, Certbot uses LetsEncrypt certs, the default values here shouldn't need to be changed unless using another CA that supports the ACME protocol.
 
 
 ```
