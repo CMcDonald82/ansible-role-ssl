@@ -12,5 +12,5 @@
 
 - name: SSL | Generate certs (subsequent times)
   become: yes
-  command: certbot certonly --webroot -w {{ certbot_root_path }} -d {{ certbot_domains | join(',') }} --email {{ certbot_email }} --non-interactive --agree-tos
+  command: certbot certonly --webroot --noninteractive --agree-tos --email {{ certbot_email }} -w {{ certbot_root_path }} -d {{ certbot_domains | join(',') }} 
   when: letsencrypt_cert.stat.exists
