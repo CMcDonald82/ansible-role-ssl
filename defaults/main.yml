@@ -4,7 +4,7 @@ certbot_package: letsencrypt
 # certbot_script: "{{ certbot_package }}"
 certbot_email: me@example.com
 certbot_root_path: /var/www/html
-certbot_domain_name: cmacweb.gq #"{{ inventory_hostname }}" #example.com
+certbot_domain_name: cmacweb1.gq #"{{ inventory_hostname }}" #example.com
 certbot_domains: 
   - "{{ certbot_domain_name }}"
   - "www.{{ certbot_domain_name }}"
