@@ -24,18 +24,17 @@ certbot_script: "{{ certbot_package }}"
 
 This specifies the package and script name to use. Since Ubuntu uses letsencrypt, Certbot uses LetsEncrypt certs, the default values here shouldn't need to be changed unless using another CA that supports the ACME protocol.
 
+```
+certbot_root_path: /var/www/html
+```
+
+The root path of the static page to be served. This should match the root directive in the nginx serverblock file that the cert is being created for. NOTE: See if we really need this to be editable by user - if not, we can hardcode it to /var/www/html
 
 ```
 certbot_email: me@example.com
 ```
 
 The email address used in the commands that generate the cert. See [docs](https://certbot.eff.org/docs/intro.html#installation) for more info.
-
-```
-certbot_root_path: /var/www/html
-```
-
-The root path of the static page to be served. This should match the root directive in the nginx serverblock file that the cert is being created for. NOTE: See if we really need this to be editable by user - if not, we can hardcode it to /var/www/html
 
 ```
 certbot_domain_name: example.com
@@ -49,7 +48,9 @@ certbot_domains:
   - "www.{{ certbot_domain_name }}"
 ```
 
-The actual domains that the certs will be generated for.
+The actual domains that the certs will be generated for. 
+
+NOTE: The certbot_email and certbot_domains variables should be set at the playbook level for each individual playbook that is running this role. If generating certs, the default values for the certbot_email and certbot_domains variables will not be valid and will need to be set to an actual email address (for certbot_email) and actual domain names (for certbot_domains) that map to the server that this role is being run on 
 
 ```
 certbot_auto_renew_user: "{{ ansible_user }}"
