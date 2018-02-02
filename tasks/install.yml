@@ -23,4 +23,4 @@
 
 - name: SSL | Set Certbot script variable
   set_fact:
-    certbot_script: "{{ ssl_package }}"
+    ssl_script: "{{ ssl_package }}"
