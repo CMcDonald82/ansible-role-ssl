@@ -1,16 +1,16 @@
 ---
 
-certbot_package: letsencrypt
-# certbot_script: "{{ certbot_package }}"
-certbot_root_path: /var/www/html
+ssl_package: letsencrypt
+# ssl_script: "{{ ssl_package }}"
+ssl_root_path: /var/www/html
 
-certbot_create_cert: false
-certbot_email: me@example.com
-certbot_domain_name: example.com
-certbot_domains: 
-  - "{{ certbot_domain_name }}"
-  - "www.{{ certbot_domain_name }}"
+ssl_create_cert: false
+ssl_email: me@example.com
+ssl_domain_name: example.com
+ssl_domains: 
+  - "{{ ssl_domain_name }}"
+  - "www.{{ ssl_domain_name }}"
 
-certbot_auto_renew_user: "{{ ansible_user }}"
-certbot_auto_renew_hour: 3
-certbot_auto_renew_minute: 30
+ssl_auto_renew_user: "{{ ansible_user }}"
+ssl_auto_renew_hour: 3
+ssl_auto_renew_minute: 30

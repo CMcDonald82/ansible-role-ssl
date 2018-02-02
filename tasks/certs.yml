@@ -2,15 +2,15 @@
 
 - name: SSL | Check if we've already generated a cert
   stat: 
-    path: /etc/letsencrypt/live/{{ certbot_domain_name }}/cert.pem
+    path: /etc/letsencrypt/live/{{ ssl_domain_name }}/cert.pem
   register: letsencrypt_cert
 
 - name: SSL | Generate certs (first time)
   become: yes
-  command: "{{ certbot_script }} certonly --standalone --noninteractive --agree-tos --email {{ certbot_email }} -d {{ certbot_domains | join(',') }}"
+  command: "{{ ssl_script }} certonly --standalone --noninteractive --agree-tos --email {{ ssl_email }} -d {{ ssl_domains | join(',') }}"
   when: not letsencrypt_cert.stat.exists
 
 - name: SSL | Generate certs (subsequent times)
   become: yes
-  command: "{{ certbot_script }} certonly --webroot --noninteractive --agree-tos --email {{ certbot_email }} -w {{ certbot_root_path }} -d {{ certbot_domains | join(',') }}" 
+  command: "{{ ssl_script }} certonly --webroot --noninteractive --agree-tos --email {{ ssl_email }} -w {{ ssl_root_path }} -d {{ ssl_domains | join(',') }}" 
   when: letsencrypt_cert.stat.exists
