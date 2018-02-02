@@ -18,50 +18,50 @@ See the 'Standalone' and 'Webroot' sections of [this link](https://certbot.eff.o
 The following variables with their default values are listed below.
 
 ```
-certbot_package: letsencrypt
-certbot_script: "{{ certbot_package }}"
+ssl_package: letsencrypt
+ssl_script: "{{ certbot_package }}"
 ```
 
 This specifies the package and script name to use. Since Ubuntu uses letsencrypt, Certbot uses LetsEncrypt certs, the default values here shouldn't need to be changed unless using another CA that supports the ACME protocol.
 
 ```
-certbot_root_path: /var/www/html
+ssl_root_path: /var/www/html
 ```
 
-The root path of the static page to be served. This should match the root directive in the nginx serverblock file that the cert is being created for. NOTE: See if we really need this to be editable by user - if not, we can hardcode it to /var/www/html
+The root path of the static page to be served. This should match the root directive in the nginx serverblock file that the cert is being created for.
 
 ```
-certbot_create_cert: false
+ssl_create_cert: false
 ```
 
 This determines whether a cert will be created automatically (via the 'standalone' method provided by the certbot package).
 
 ```
-certbot_email: me@example.com
+ssl_email: me@example.com
 ```
 
 The email address used in the commands that generate the cert. See [docs](https://certbot.eff.org/docs/intro.html#installation) for more info.
 
 ```
-certbot_domain_name: example.com
+ssl_domain_name: example.com
 ```
 
 The domain name of the site that the cert will be created for
 
 ```
-certbot_domains: 
-  - "{{ certbot_domain_name }}"
-  - "www.{{ certbot_domain_name }}"
+ssl_domains: 
+  - "{{ ssl_domain_name }}"
+  - "www.{{ ssl_domain_name }}"
 ```
 
 The actual domains that the certs will be generated for. 
 
-NOTE: The certbot_email and certbot_domains variables should be set at the playbook level for each individual playbook that is running this role. If generating certs, the default values for the certbot_email and certbot_domains variables will not be valid and will need to be set to an actual email address (for certbot_email) and actual domain names (for certbot_domains) that map to the server that this role is being run on 
+NOTE: The ssl_email and ssl_domains variables should be set at the playbook level for each individual playbook that is running this role. If generating certs, the default values for the ssl_email and ssl_domains variables will not be valid and will need to be set to an actual email address (for ssl_email) and actual domain names (for ssl_domains) that map to the server that this role is being run on 
 
 ```
-certbot_auto_renew_user: "{{ ansible_user }}"
-certbot_auto_renew_hour: 3
-certbot_auto_renew_minute: 30
+ssl_auto_renew_user: "{{ ansible_user }}"
+ssl_auto_renew_hour: 3
+ssl_auto_renew_minute: 30
 ```
 
 These variables determine the user/hour/minute to run the cron job to auto-renew the certs. You should set these so that the auto-renewal is done at a low-traffic time by a non-root user.
@@ -76,10 +76,10 @@ These variables determine the user/hour/minute to run the cron job to auto-renew
 
   roles:
     - role: ssl_role
-      certbot_domain_name: mywebsite.com
-      certbot_email: me@mywebsite.com
-      certbot_auto_renew_hour: 1
-      certbot_auto_renew_minute: 0 
+      ssl_domain_name: mywebsite.com
+      ssl_email: me@mywebsite.com
+      ssl_auto_renew_hour: 1
+      ssl_auto_renew_minute: 0 
 ```
 
 ## Dependencies
