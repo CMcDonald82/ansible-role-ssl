@@ -1,7 +1,6 @@
 ---
 
 ssl_package: letsencrypt
-# ssl_script: "{{ ssl_package }}"
 ssl_root_path: /var/www/html
 
 ssl_create_cert: false
