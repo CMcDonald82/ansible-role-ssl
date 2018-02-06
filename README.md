@@ -18,11 +18,11 @@ See the 'Standalone' and 'Webroot' sections of [this link](https://certbot.eff.o
 The following variables with their default values are listed below.
 
 ```
-ssl_package: letsencrypt
+ssl_package: certbot
 ssl_script: "{{ certbot_package }}"
 ```
 
-This specifies the package and script name to use. Since Ubuntu uses letsencrypt, Certbot uses LetsEncrypt certs, the default values here shouldn't need to be changed unless using another CA that supports the ACME protocol.
+This specifies the package and script name to use. The default values here shouldn't need to be changed unless using another CA that supports the ACME protocol.
 
 ```
 ssl_root_path: /var/www/html
