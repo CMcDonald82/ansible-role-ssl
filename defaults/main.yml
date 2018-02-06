@@ -1,6 +1,6 @@
 ---
 
-ssl_package: letsencrypt
+ssl_package: certbot #letsencrypt
 ssl_root_path: /var/www/html
 
 ssl_create_cert: false
