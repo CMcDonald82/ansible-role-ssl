@@ -19,7 +19,6 @@ The following variables with their default values are listed below.
 
 ```
 ssl_package: certbot
-ssl_script: "{{ certbot_package }}"
 ```
 
 This specifies the package and script name to use. The default values here shouldn't need to be changed unless using another CA that supports the ACME protocol.
