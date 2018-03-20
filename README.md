@@ -48,14 +48,14 @@ ssl_domain_name: example.com
 The domain name of the site that the cert will be created for
 
 ```
-ssl_domains: 
+ssl_hostnames: 
   - "{{ ssl_domain_name }}"
   - "www.{{ ssl_domain_name }}"
 ```
 
-The actual domains that the certs will be generated for. 
+The hostnames that the certs will be generated for. 
 
-NOTE: The ssl_email and ssl_domains variables should be set at the playbook level for each individual playbook that is running this role. If generating certs, the default values for the ssl_email and ssl_domains variables will not be valid and will need to be set to an actual email address (for ssl_email) and actual domain names (for ssl_domains) that map to the server that this role is being run on 
+NOTE: The ssl_email and ssl_hostnames variables should be set at the playbook level for each individual playbook that is running this role. If generating certs, the default values for the ssl_email and ssl_hostnames variables will not be valid and will need to be set to an actual email address (for ssl_email) and actual hostnames (for ssl_hostnames) that map to the server that this role is being run on 
 
 ```
 ssl_auto_renew_user: "{{ ansible_user }}"

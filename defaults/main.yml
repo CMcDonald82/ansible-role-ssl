@@ -6,7 +6,7 @@ ssl_root_path: /var/www/html
 ssl_create_cert: false
 ssl_email: me@example.com
 ssl_domain_name: example.com
-ssl_domains: 
+ssl_hostnames: 
   - "{{ ssl_domain_name }}"
   - "www.{{ ssl_domain_name }}"
 
