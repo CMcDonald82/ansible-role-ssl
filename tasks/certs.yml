@@ -7,10 +7,10 @@
 
 - name: SSL | Generate certs (first time)
   become: yes
-  command: "{{ ssl_script }} certonly --standalone --noninteractive --agree-tos --email {{ ssl_email }} -d {{ ssl_hostnames | join(',') }}"
+  command: "{{ ssl_package }} certonly --standalone --noninteractive --agree-tos --email {{ ssl_email }} -d {{ ssl_hostnames | join(',') }}"
   when: not letsencrypt_cert.stat.exists
 
 - name: SSL | Generate certs (subsequent times)
   become: yes
-  command: "{{ ssl_script }} certonly --webroot --noninteractive --agree-tos --email {{ ssl_email }} -w {{ ssl_root_path }} -d {{ ssl_hostnames | join(',') }}" 
+  command: "{{ ssl_package }} certonly --webroot --noninteractive --agree-tos --email {{ ssl_email }} -w {{ ssl_root_path }} -d {{ ssl_hostnames | join(',') }}" 
   when: letsencrypt_cert.stat.exists
