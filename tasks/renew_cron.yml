@@ -3,7 +3,7 @@
 - name: SSL | Add cron job for certbot renewal (if configured)
   cron:
     name: Certbot auto-renewal
-    job: "{{ ssl_package }} renew --quiet --no-self-upgrade"
+    job: "{{ ssl_package }} renew {{ ssl_auto_renew_options }}"
     minute: "{{ ssl_auto_renew_minute }}"
     hour: "{{ ssl_auto_renew_hour }}"
     user: "{{ ssl_auto_renew_user }}"

@@ -13,3 +13,4 @@ ssl_hostnames:
 ssl_auto_renew_user: "{{ ansible_user }}"
 ssl_auto_renew_hour: 3
 ssl_auto_renew_minute: 30
+ssl_auto_renew_options: "--quiet --no-self-upgrade"
