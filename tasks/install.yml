@@ -20,7 +20,3 @@
   apt:
     name: certbot
     state: installed
-
-- name: SSL | Set Certbot script variable
-  set_fact:
-    ssl_script: "{{ ssl_package }}"
